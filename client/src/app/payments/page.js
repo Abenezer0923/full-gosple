@@ -113,7 +113,11 @@ export default function PaymentsPage() {
                 onClick={() => router.push('/dashboard')}
                 className="text-xl font-bold text-gray-900 hover:text-gray-700"
               >
-                GraceLedger
+                <div className="flex items-center space-x-2">
+                  <img src="/Full_gosple.png" alt="Church Logo" className="h-8 w-8 rounded-full" />
+                  <span className="hidden sm:inline">Akaki Full Gospel Church</span>
+                  <span className="sm:hidden">AFGC</span>
+                </div>
               </button>
               <div className="flex space-x-4">
                 <button

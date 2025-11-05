@@ -102,7 +102,8 @@ export default function ReportsPage() {
               >
                 <div className="flex items-center space-x-2">
                   <img src="/Full_gosple.png" alt="Church Logo" className="h-8 w-8 rounded-full" />
-                  <span>Akaki Full Gospel Church</span>
+                  <span className="hidden sm:inline">Akaki Full Gospel Church</span>
+                  <span className="sm:hidden">AFGC</span>
                 </div>
               </button>
               <button
