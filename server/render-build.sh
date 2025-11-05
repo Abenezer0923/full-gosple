@@ -10,3 +10,6 @@ npx prisma generate
 
 # Push schema to database (creates tables without migration files)
 npx prisma db push --skip-generate --accept-data-loss
+
+# Seed the database with initial data
+npm run seed
