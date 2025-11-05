@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  PASTOR
+  SECRETARY
+}
+
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  DECEASED
+}
+
+enum PaymentMethod {
+  CASH
+  BANK_TRANSFER
+  MOBILE_MONEY
+  CHECK
+  CARD
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      UserRole @default(SECRETARY)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  profile   Profile?
+
+  @@map("users")
+}
+
+model Profile {
+  id          String       @id @default(uuid())
+  userId      String       @unique
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  avatarUrl   String?
+  fullName    String
+  phone       String?
+  address     String?
+  dateJoined  DateTime     @default(now())
+  status      MemberStatus @default(ACTIVE)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  payments    Payment[]
+  memberGroups MemberGroup[]
+
+  @@map("profiles")
+}
+
+model PaymentType {
+  id       String    @id @default(uuid())
+  name     String    @unique
+  payments Payment[]
+
+  @@map("payment_types")
+}
+
+model Payment {
+  id            String        @id @default(uuid())
+  memberId      String
+  member        Profile       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  amount        Decimal       @db.Decimal(10, 2)
+  paymentTypeId String
+  paymentType   PaymentType   @relation(fields: [paymentTypeId], references: [id])
+  paymentDate   DateTime      @default(now())
+  forMonth      DateTime
+  method        PaymentMethod @default(CASH)
+  receiptUrl    String?
+  notes         String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([memberId])
+  @@index([paymentDate])
+  @@index([forMonth])
+  @@map("payments")
+}
+
+model ChurchGroup {
+  id           String        @id @default(uuid())
+  name         String        @unique
+  description  String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  memberGroups MemberGroup[]
+
+  @@map("church_groups")
+}
+
+model MemberGroup {
+  id        String      @id @default(uuid())
+  memberId  String
+  member    Profile     @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  groupId   String
+  group     ChurchGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  joinedAt  DateTime    @default(now())
+
+  @@unique([memberId, groupId])
+  @@map("member_groups")
+}

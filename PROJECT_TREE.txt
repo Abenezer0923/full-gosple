@@ -1,0 +1,163 @@
+GraceLedger - Complete Project Structure
+=========================================
+
+graceledger/
+│
+├── 📁 .github/
+│   └── workflows/
+│       └── deploy.yml                    # CI/CD pipeline (GitHub Actions)
+│
+├── 📁 client/                            # Next.js Frontend Application
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── dashboard/
+│   │   │   │   └── page.js              # Dashboard page with stats
+│   │   │   ├── login/
+│   │   │   │   └── page.js              # Login page
+│   │   │   ├── globals.css              # Global styles
+│   │   │   ├── layout.js                # Root layout
+│   │   │   └── page.js                  # Home page (redirects to login)
+│   │   ├── lib/
+│   │   │   └── api.js                   # Axios instance with interceptors
+│   │   └── store/
+│   │       └── authStore.js             # Zustand auth state management
+│   ├── .dockerignore
+│   ├── .env.example                     # Environment variables template
+│   ├── Dockerfile                       # Development Docker config
+│   ├── Dockerfile.prod                  # Production Docker config
+│   ├── jest.config.js                   # Jest configuration
+│   ├── jest.setup.js                    # Jest setup file
+│   ├── next.config.js                   # Next.js configuration
+│   ├── package.json                     # Frontend dependencies
+│   ├── postcss.config.js                # PostCSS configuration
+│   └── tailwind.config.js               # TailwindCSS configuration
+│
+├── 📁 server/                            # Express.js Backend API
+│   ├── __tests__/
+│   │   └── auth.test.js                 # Authentication tests
+│   ├── prisma/
+│   │   └── schema.prisma                # Database schema (PostgreSQL)
+│   ├── src/
+│   │   ├── middleware/
+│   │   │   └── auth.middleware.js       # JWT auth & authorization
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js           # Auth endpoints (login, register)
+│   │   │   ├── dashboard.routes.js      # Dashboard statistics
+│   │   │   ├── group.routes.js          # Church groups management
+│   │   │   ├── member.routes.js         # Member CRUD operations
+│   │   │   └── payment.routes.js        # Payment management
+│   │   ├── index.js                     # Express app entry point
+│   │   └── seed.js                      # Database seeding script
+│   ├── .dockerignore
+│   ├── .env.example                     # Environment variables template
+│   ├── API.md                           # API documentation
+│   ├── Dockerfile                       # Development Docker config
+│   ├── Dockerfile.prod                  # Production Docker config
+│   ├── jest.config.js                   # Jest configuration
+│   └── package.json                     # Backend dependencies
+│
+├── 📄 .dockerignore                      # Docker ignore file
+├── 📄 .env.example                       # Root environment variables
+├── 📄 .gitignore                         # Git ignore file
+├── 📄 CHECKLIST.md                       # Setup & deployment checklist
+├── 📄 CONTRIBUTING.md                    # Contribution guidelines
+├── 📄 DEPLOYMENT.md                      # Production deployment guide
+├── 📄 docker-compose.yml                 # Docker orchestration
+├── 📄 GETTING_STARTED.md                 # Quick start guide
+├── 📄 LICENSE                            # MIT License
+├── 📄 Makefile                           # Convenience commands
+├── 📄 PROJECT_STRUCTURE.md               # Detailed architecture docs
+├── 📄 PROJECT_SUMMARY.md                 # Project overview
+├── 📄 README.md                          # Main documentation
+└── 📄 setup.sh                           # Automated setup script
+
+Key Features:
+=============
+
+✅ Authentication & Authorization
+   - JWT token-based auth
+   - Role-based access control (SUPER_ADMIN, PASTOR, SECRETARY)
+   - HTTP-only cookies
+   - Password hashing with bcrypt
+
+✅ Member Management
+   - CRUD operations
+   - Profile picture upload (Cloudinary)
+   - Search and filtering
+   - Status tracking
+   - Pagination
+
+✅ Payment Management
+   - Multiple payment types (Tithe, Offering, etc.)
+   - Various payment methods
+   - Monthly tracking
+   - Payment history
+   - Digital receipts
+
+✅ Dashboard & Analytics
+   - Real-time statistics
+   - Monthly trends (12 months)
+   - Payment distribution
+   - Member metrics
+   - Recent payments
+
+✅ Church Groups
+   - Create and manage groups
+   - Member assignments
+   - Many-to-many relationships
+
+✅ DevOps & CI/CD
+   - Docker containerization
+   - GitHub Actions pipeline
+   - Automated testing
+   - Deployment automation
+   - Database migrations
+
+Technology Stack:
+=================
+
+Frontend:
+- Next.js 14 (React 18)
+- TailwindCSS
+- Zustand
+- Axios
+- Recharts
+
+Backend:
+- Node.js 18
+- Express.js
+- Prisma ORM
+- PostgreSQL 15
+- JWT + Bcrypt
+
+DevOps:
+- Docker & Docker Compose
+- GitHub Actions
+- Vercel (Frontend)
+- Render/Railway (Backend)
+
+Quick Start:
+============
+
+1. chmod +x setup.sh
+2. ./setup.sh
+3. Visit http://localhost:3000
+4. Login: admin@graceledger.com / admin123
+
+Documentation:
+==============
+
+📖 README.md              - Main documentation
+📖 GETTING_STARTED.md     - Beginner's guide
+📖 PROJECT_STRUCTURE.md   - Architecture details
+📖 DEPLOYMENT.md          - Production deployment
+📖 CHECKLIST.md           - Setup checklist
+📖 CONTRIBUTING.md        - Contribution guide
+📖 server/API.md          - API documentation
+📖 PROJECT_SUMMARY.md     - Project overview
+
+Total Files: 32+
+Lines of Code: 2000+
+API Endpoints: 20+
+Database Tables: 6
+User Roles: 3
