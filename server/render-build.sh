@@ -8,5 +8,5 @@ npm install
 # Generate Prisma Client
 npx prisma generate
 
-# Run database migrations
-npx prisma migrate deploy
+# Push schema to database (creates tables without migration files)
+npx prisma db push --skip-generate --accept-data-loss
