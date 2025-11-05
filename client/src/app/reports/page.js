@@ -101,7 +101,7 @@ export default function ReportsPage() {
                 className="text-xl font-bold text-gray-900 hover:text-gray-700"
               >
                 <div className="flex items-center space-x-2">
-                  <img src="/logo.png" alt="Church Logo" className="h-8 w-8" />
+                  <img src="/Full_gosple.png" alt="Church Logo" className="h-8 w-8 rounded-full" />
                   <span>Akaki Full Gospel Church</span>
                 </div>
               </button>
@@ -144,7 +144,7 @@ export default function ReportsPage() {
           {/* Print Header */}
           <div className="hidden print:block mb-8 text-center">
             <div className="flex flex-col items-center">
-              <img src="/logo.png" alt="Church Logo" className="h-16 w-16 mb-3" />
+              <img src="/Full_gosple.png" alt="Church Logo" className="h-16 w-16 rounded-full mb-3" />
               <h1 className="text-3xl font-bold">Akaki Full Gospel Church</h1>
             </div>
             <h2 className="text-xl text-gray-600">Monthly Financial Report</h2>

@@ -30,7 +30,7 @@ export default function PaymentReceipt({ payment, onClose }) {
           {/* Church Header */}
           <div className="text-center mb-8">
             <div className="flex flex-col items-center">
-              <img src="/logo.png" alt="Church Logo" className="h-16 w-16 mb-3" />
+              <img src="/Full_gosple.png" alt="Church Logo" className="h-16 w-16 rounded-full mb-3" />
               <h1 className="text-3xl font-bold text-gray-900">Akaki Full Gospel Church</h1>
             </div>
             <p className="text-gray-600">Church Management System</p>

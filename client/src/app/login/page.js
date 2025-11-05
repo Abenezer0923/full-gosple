@@ -32,7 +32,7 @@ export default function LoginPage() {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             <div className="flex flex-col items-center">
-            <img src="/logo.png" alt="Church Logo" className="h-20 w-20 mb-4" />
+            <img src="/Full_gosple.png" alt="Church Logo" className="h-20 w-20 rounded-full mb-4" />
             <span>Akaki Full Gospel Church</span>
           </div>
           </h2>

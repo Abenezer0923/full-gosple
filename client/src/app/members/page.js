@@ -40,16 +40,16 @@ export default function MembersPage() {
             fetchMembers()
         }
     }, [isAuthenticated, isLoading])
-    
+
     useEffect(() => {
         // Fallback: if still loading after 10 seconds, stop loading
         if (!loading) return
-        
+
         const timeout = setTimeout(() => {
             setLoading(false)
             setError('Loading took too long. Please refresh the page.')
         }, 10000)
-        
+
         return () => clearTimeout(timeout)
     }, [loading])
 
@@ -99,7 +99,7 @@ export default function MembersPage() {
             </div>
         )
     }
-    
+
     // Show error if loading failed
     if (error && members.length === 0) {
         return (
@@ -137,9 +137,9 @@ export default function MembersPage() {
                                 className="text-xl font-bold text-gray-900 hover:text-gray-700"
                             >
                                 <div className="flex items-center space-x-2">
-                  <img src="/logo.png" alt="Church Logo" className="h-8 w-8" />
-                  <span>Akaki Full Gospel Church</span>
-                </div>
+                                    <img src="/Full_gosple.png" alt="Church Logo" className="h-8 w-8 rounded-full" />
+                                    <span>Akaki Full Gospel Church</span>
+                                </div>
                             </button>
                         </div>
                         <div className="flex items-center space-x-4">

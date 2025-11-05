@@ -68,7 +68,7 @@ export default function DashboardPage() {
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-3">
-                <img src="/logo.png" alt="Church Logo" className="h-10 w-10" />
+                <img src="/Full_gosple.png" alt="Church Logo" className="h-10 w-10 rounded-full" />
                 <h1 className="text-xl font-bold text-gray-900">Akaki Full Gospel Church</h1>
               </div>
               <div className="flex space-x-4">

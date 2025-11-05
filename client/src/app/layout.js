@@ -7,7 +7,7 @@ export const metadata = {
   title: 'Akaki Full Gospel Church - Management System',
   description: 'Comprehensive church tithing and membership management',
   icons: {
-    icon: '/logo.png',
+    icon: '/Full_gosple.png',
   },
 }
 
