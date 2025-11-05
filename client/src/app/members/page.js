@@ -136,7 +136,10 @@ export default function MembersPage() {
                                 onClick={() => router.push('/dashboard')}
                                 className="text-xl font-bold text-gray-900 hover:text-gray-700"
                             >
-                                GraceLedger
+                                <div className="flex items-center space-x-2">
+                  <img src="/logo.png" alt="Church Logo" className="h-8 w-8" />
+                  <span>Akaki Full Gospel Church</span>
+                </div>
                             </button>
                         </div>
                         <div className="flex items-center space-x-4">

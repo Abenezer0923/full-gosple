@@ -46,7 +46,7 @@ router.post('/image', authenticate, upload.single('image'), async (req, res) => 
     const result = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
-          folder: 'graceledger/members',
+          folder: 'akaki-church/members',
           transformation: [
             { width: 400, height: 400, crop: 'fill', gravity: 'face' },
             { quality: 'auto' }

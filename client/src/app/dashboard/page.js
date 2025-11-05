@@ -67,7 +67,10 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-8">
-              <h1 className="text-xl font-bold text-gray-900">GraceLedger</h1>
+              <div className="flex items-center space-x-3">
+                <img src="/logo.png" alt="Church Logo" className="h-10 w-10" />
+                <h1 className="text-xl font-bold text-gray-900">Akaki Full Gospel Church</h1>
+              </div>
               <div className="flex space-x-4">
                 <button
                   onClick={() => router.push('/dashboard')}

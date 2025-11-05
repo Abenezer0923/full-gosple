@@ -100,7 +100,10 @@ export default function ReportsPage() {
                 onClick={() => router.push('/dashboard')}
                 className="text-xl font-bold text-gray-900 hover:text-gray-700"
               >
-                GraceLedger
+                <div className="flex items-center space-x-2">
+                  <img src="/logo.png" alt="Church Logo" className="h-8 w-8" />
+                  <span>Akaki Full Gospel Church</span>
+                </div>
               </button>
               <button
                 onClick={() => router.push('/dashboard')}
@@ -140,7 +143,10 @@ export default function ReportsPage() {
 
           {/* Print Header */}
           <div className="hidden print:block mb-8 text-center">
-            <h1 className="text-3xl font-bold">GraceLedger</h1>
+            <div className="flex flex-col items-center">
+              <img src="/logo.png" alt="Church Logo" className="h-16 w-16 mb-3" />
+              <h1 className="text-3xl font-bold">Akaki Full Gospel Church</h1>
+            </div>
             <h2 className="text-xl text-gray-600">Monthly Financial Report</h2>
             <p className="text-gray-500">
               {new Date(selectedMonth + '-01').toLocaleDateString('en-US', {
