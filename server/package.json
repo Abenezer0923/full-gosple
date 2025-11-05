@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
+    "build": "npx prisma generate",
     "test": "jest --detectOpenHandles --forceExit",
     "test:watch": "jest --watch",
     "seed": "node src/seed.js",
