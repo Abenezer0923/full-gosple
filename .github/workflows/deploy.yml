@@ -41,9 +41,9 @@ jobs:
         working-directory: server
         run: npx prisma generate
       
-      - name: Run migrations
+      - name: Push database schema
         working-directory: server
-        run: npx prisma migrate deploy
+        run: npx prisma db push --skip-generate
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
       
@@ -54,6 +54,10 @@ jobs:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
           NODE_ENV: test
           JWT_SECRET: test-secret
+          CLOUDINARY_CLOUD_NAME: test
+          CLOUDINARY_API_KEY: test
+          CLOUDINARY_API_SECRET: test
+          CLIENT_URL: http://localhost:3000
 
   test-frontend:
     runs-on: ubuntu-latest
