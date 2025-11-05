@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seed Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            background: #0070f3;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0051cc;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seed GraceLedger Database</h1>
+    <p>Click the button below to initialize the database with default data:</p>
+    <button onclick="seedDatabase()">Seed Database</button>
+    <div id="result"></div>
+
+    <script>
+        async function seedDatabase() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Seeding database...';
+            resultDiv.className = '';
+
+            try {
+                const response = await fetch('https://full-gosple-api.onrender.com/api/seed/initialize', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    resultDiv.className = 'success';
+                    resultDiv.innerHTML = `
+                        <h3>✅ Success!</h3>
+                        <p>${data.message}</p>
+                        <p><strong>Admin Login:</strong></p>
+                        <p>Email: ${data.data.adminEmail}</p>
+                        <p>Password: ${data.data.adminPassword}</p>
+                        <p>Payment Types: ${data.data.paymentTypes}</p>
+                        <p>Church Groups: ${data.data.churchGroups}</p>
+                    `;
+                } else {
+                    resultDiv.className = 'error';
+                    resultDiv.innerHTML = `<h3>❌ Error</h3><p>${data.error}</p>`;
+                }
+            } catch (error) {
+                resultDiv.className = 'error';
+                resultDiv.innerHTML = `<h3>❌ Error</h3><p>${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
